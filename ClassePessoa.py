@@ -4,7 +4,7 @@ import random
 
 class Pessoa:
     def __init__(self, nome, altura, peso):
-        utilidades = json.load(open("UTILIDADES.json"))
+        utilidades = json.load(open(r"UTILIDADES.json"))
 
         self._nome = nome
         self._altura = altura
@@ -67,17 +67,17 @@ class Pessoa:
 
     @staticmethod
     def _ler_pericia():
-        with open('C:\\Users\\arthu\\PycharmProjects\\APRENDENDO\\TESTE_ATUAL\\Pasta_RPG-Julia\\PERICIAS.json', "r") as file:
+        with open(r'PERICIAS.json', "r") as file:
             return json.load(file)
 
     @staticmethod
     def _ler_mochila():
-        with open('C:\\Users\\arthu\\PycharmProjects\\APRENDENDO\\TESTE_ATUAL\\Pasta_RPG-Julia\\MOCHILA.json', "r") as file:
+        with open(r'MOCHILA.json', "r") as file:
             return json.load(file)
 
     @staticmethod
     def _ler_atributos():
-        with open('C:\\Users\\arthu\\PycharmProjects\\APRENDENDO\\TESTE_ATUAL\\Pasta_RPG-Julia\\ATRIBUTOS.json', "r") as file:
+        with open(r'ATRIBUTOS.json', "r") as file:
             return json.load(file)
 
     @staticmethod
@@ -86,7 +86,7 @@ class Pessoa:
                      '(2) D6\n'
                      '(3) D8\n'
                      '(4) D12\n'
-                     '(5) D20\n')
+                     '(5) D20\n').split()
         result = []
         for i in dice:
             if i == '1':
@@ -163,10 +163,3 @@ class Pessoa:
 
         with open("UTILIDADES.json", "w") as f:
             json.dump(util, f)
-
-
-
-if __name__ == "__main__":
-    eu = Pessoa("Guilherme", "180cm", 86)
-
-
